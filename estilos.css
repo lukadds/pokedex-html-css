@@ -5,47 +5,56 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif; 
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   background-color: #000000;
   color: #fefefe;
+  font-size: 16px;
 }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========== BASE (CELULAR) ========== */
 
 .cabecalho {
   background-color: #ff0000;
   color: rgb(0, 4, 255);
   text-align: center;
-  padding: 30px;
+  padding: 20px 15px;
+  font-size: 1.4rem;
 }
 
 .conteudo {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
   background-color: #ff0000;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .destaque {
   background-color: rgb(0, 4, 255);
   padding: 10px;
   border-left: 4px solid #ff0000;
+  font-size: 0.95rem;
 }
 
 .cartoes {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 15px;
-  margin-top: 20px;
+  flex-direction: column; /* cartões empilhados */
+  gap: 12px;
+  margin-top: 15px;
 }
 
 .cartao {
-  flex: 1;
-  height: 240px;
+  width: 100%;
+  height: 200px;
   border: 0;
-  background-color: #2c2c2c ;
-  padding: 20px;
+  background-color: #2c2c2c;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +62,6 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border-radius: 6px;
 }
-
 
 .cartao img {
   width: 100%;
@@ -72,26 +80,67 @@ body {
   outline-offset: 3px;
 }
 
-.charmander {
-  color: #FFA500;
-}
+.charmander { color: #FFA500; }
+.squirtle   { color: #0000FF; }
+.bulbasaur  { color: #00FF00; }
 
-.squirtle {
-  color: #0000FF;
-}
+/* ========== TABLET (a partir de 601px) ========== */
 
-.bulbasaur {
-  color: #00FF00;
-}
+@media (min-width: 601px) {
+  .cabecalho {
+    padding: 30px;
+    font-size: 1.8rem;
+  }
 
-@media (max-width: 600px) {
+  .conteudo {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
   .cartoes {
-    flex-direction: column;
+    flex-direction: row; /* cartões lado a lado */
+    gap: 15px;
+    margin-top: 20px;
   }
 
   .cartao {
-    width: 100%;
-    height: 220px;
+    flex: 1;
+    height: 240px;
+    padding: 20px;
   }
 }
 
+/* ========== COMPUTADOR (a partir de 992px) ========== */
+
+@media (min-width: 992px) {
+  body {
+    font-size: 18px;
+  }
+
+  .cabecalho {
+    padding: 40px;
+    font-size: 2.4rem;
+  }
+
+  .conteudo {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+  }
+
+  .destaque {
+    padding: 15px 20px;
+    font-size: 1.1rem;
+  }
+
+  .cartoes {
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .cartao {
+    height: 300px;
+  }
+}
